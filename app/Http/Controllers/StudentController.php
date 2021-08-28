@@ -100,19 +100,19 @@ class StudentController extends Controller
     public function search($name, $email)
     {
 
-        $data = Student::where('name', 'LIKE', "%{$name}%")->orwhere('email', 'LIKE', "%{$email}%")->get();
+        $data = Student::where('name', 'LIKE', "%$name%")->where('email', 'LIKE', "%$email%")->get();
         return $data;
     }
 
     public function searchName($name)
     {
-        $data = Student::where('name', 'LIKE', "%{$name}%")->get();
+        $data = Student::where('name', 'LIKE', "%$name%")->get();
         return $data;
     }
 
     public function searchEmail($email)
     {
-        $data = Student::where('email', 'LIKE', "%{$email}%")->get();
+        $data = Student::where('email', 'LIKE', "%$email%")->get();
         return $data;
     }
 }

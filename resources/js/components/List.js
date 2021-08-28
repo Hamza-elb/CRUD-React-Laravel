@@ -49,18 +49,18 @@ export default class List extends Component {
 
                 {this.state.alert_msg == "success" ? <DeletAlert /> : null}
                 {this.state.alert_msg == "error" ? <ErrorAlert /> : null}
-                <div class="container">
-                    <div class="box-nav d-flex justify-between">
-                        <Link to="/users" class="btn border-shadow delete">
-                            <span class="text-gradient">
-                                Users <i class="fas fa-users"></i>
+                <div className="container">
+                    <div className="box-nav d-flex justify-between">
+                        <Link to="/users" className="btn border-shadow delete">
+                            <span className="text-gradient">
+                                Users <i className="fas fa-users"></i>
                             </span>
                         </Link>
                     </div>
                 </div>
                 <hr />
                 <table className="table">
-                    <thead class="thead-dark">
+                    <thead className="thead-dark">
                         <tr>
                             <th scope="col">ID</th>
                             <th scope="col">Name</th>

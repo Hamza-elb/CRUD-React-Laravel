@@ -106,10 +106,10 @@ export default class EditUser extends Component {
                     <button
                         type="submit"
                         onClick={this.handleClean}
-                        class="btn border-shadow delete"
+                        className="btn border-shadow delete"
                     >
-                        <span class="text-gradient">
-                            <i class="fas fa-broom"></i>
+                        <span className="text-gradient">
+                            <i className="fas fa-broom"></i>
                         </span>
                     </button>
                 </div>

@@ -25,14 +25,13 @@ Route::get('/home', function () {
 
 Auth::routes();
 
-Route::get('/search//{email}', 'App\Http\Controllers\StudentController@searchEmail');
-Route::get('/search/{null}/{email}', 'App\Http\Controllers\StudentController@searchEmail');
-
-Route::get('/search/{name}/{null} ', 'App\Http\Controllers\StudentController@searchName');
-Route::get('/search/{name}//', 'App\Http\Controllers\StudentController@searchName');
-
+Route::get('/searchemail/{email}', 'App\Http\Controllers\StudentController@searchEmail');
+Route::get('/searchname/{name}', 'App\Http\Controllers\StudentController@searchName');
 Route::get('/search/{name}/{email}', 'App\Http\Controllers\StudentController@search');
 
+Route::get('/searche/{email}', 'App\Http\Controllers\AdminController@searchEmail');
+Route::get('/searchn/{name}', 'App\Http\Controllers\AdminController@searchName');
+Route::get('/search2/{name}/{email}', 'App\Http\Controllers\AdminController@search');
 
 
 
@@ -43,10 +42,6 @@ Route::delete('/destroy/{id}', 'App\Http\Controllers\StudentController@destroy')
 Route::get('/edit/{id}', 'App\Http\Controllers\StudentController@edit');
 Route::put('/update/{id}', 'App\Http\Controllers\StudentController@update');
 
-//Route::get('/search/{name}/{email}', 'App\Http\Controllers\StudentController@search');
-//Route::get('/search/{name}//', 'App\Http\Controllers\StudentController@searchName');
-//Route::get('/search//{email}', 'App\Http\Controllers\StudentController@searchEmail');
-//Route::get('/search/{name}/{null} ', 'App\Http\Controllers\StudentController@searchName');
 
 
 Route::get('/admin/index', 'App\Http\Controllers\AdminController@index');

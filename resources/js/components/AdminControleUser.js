@@ -49,11 +49,21 @@ export default class AdminControletUsers extends Component {
 
                 {this.state.alert_msg == "success" ? <DeletAlert /> : null}
                 {this.state.alert_msg == "error" ? <ErrorAlert /> : null}
-                <div class="box-nav d-flex justify-between">
-                    <div class="box-nav d-flex justify-between">
-                        <Link to="/addUser" class="btn border-shadow delete">
-                            <span class="text-gradient">
-                                <i class="fas fa-user-plus"></i>
+                <div className="box-nav d-flex justify-between">
+                    <div className="box-nav d-flex justify-between">
+                        <Link
+                            to="/addUser"
+                            className="btn border-shadow delete"
+                        >
+                            <span className="text-gradient">
+                                <i className="fas fa-user-plus"></i>
+                            </span>
+                        </Link>
+                    </div>
+                    <div className="box-nav d-flex justify-between">
+                        <Link to="/sUser" className="btn border-shadow delete">
+                            <span className="text-gradient">
+                                <i className="fas fa-search-plus"></i>
                             </span>
                         </Link>
                     </div>
@@ -61,7 +71,7 @@ export default class AdminControletUsers extends Component {
 
                 <hr />
                 <table className="table">
-                    <thead class="thead-dark">
+                    <thead className="thead-dark">
                         <tr>
                             <th scope="col">ID</th>
                             <th scope="col">Name</th>

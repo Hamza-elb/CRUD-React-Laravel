@@ -99,4 +99,23 @@ class AdminController extends Controller
         $user = User::find($id);
         $user->delete();
     }
+
+    public function search($name, $email)
+    {
+
+        $data = User::where('name', 'LIKE', "%$name%")->where('email', 'LIKE', "%$email%")->where('roles', 'LIKE', "user")->get();
+        return $data;
+    }
+
+    public function searchName($name)
+    {
+        $data = User::where('name', 'LIKE', "%$name%")->where('roles', 'LIKE', "user")->get();
+        return $data;
+    }
+
+    public function searchEmail($email)
+    {
+        $data = User::where('email', 'LIKE', "%$email%")->where('roles', 'LIKE', "user")->get();
+        return $data;
+    }
 }

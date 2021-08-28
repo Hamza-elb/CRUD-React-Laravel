@@ -89,10 +89,10 @@ export default class AddUser extends Component {
                     <button
                         type="submit"
                         onClick={this.handleClean}
-                        class="btn border-shadow delete"
+                        className="btn border-shadow delete"
                     >
-                        <span class="text-gradient">
-                            <i class="fas fa-broom"></i>
+                        <span className="text-gradient">
+                            <i className="fas fa-broom"></i>
                         </span>
                     </button>
                 </div>
@@ -148,7 +148,7 @@ export default class AddUser extends Component {
                     </div>
                     <div className="form-group">
                         <div className="mb-3">
-                            <label htmlFor="roles" class="text-dark">
+                            <label htmlFor="roles" className="text-dark">
                                 Roles
                             </label>
                         </div>

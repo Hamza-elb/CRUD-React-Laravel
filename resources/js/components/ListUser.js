@@ -29,7 +29,7 @@ export default class ListUser extends Component {
 
                 {this.state.alert_msg == "error" ? <ErrorAlert /> : null}
                 <table className="table">
-                    <thead class="thead-dark">
+                    <thead className="thead-dark">
                         <tr>
                             <th scope="col">ID</th>
                             <th scope="col">Name</th>

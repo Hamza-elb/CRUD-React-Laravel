@@ -16,6 +16,17 @@ export default class SearchStudent extends Component {
             students: [],
         };
     }
+    componentDidMount() {
+        axios
+            .get("http://127.0.0.1:8000/edit/" + this.props.match.params.id)
+            .then((response) => {
+                this.setState({
+                    name: response.data.name,
+                    email: response.data.email,
+                    gender: response.data.gender,
+                });
+            });
+    }
 
     handelNameInputChange(e) {
         this.setState({
@@ -30,19 +41,40 @@ export default class SearchStudent extends Component {
 
     onSubmit(e) {
         e.preventDefault();
-        axios
-            .get(
-                "http://127.0.0.1:8000/search/" +
-                    this.state.name +
-                    "/" +
-                    this.state.email,
-                { name: this.state, email: this.state }
-            )
-            .then((response) => {
-                this.setState({
-                    students: response.data,
+
+        if (this.state.name && !this.state.email) {
+            axios
+                .get("http://127.0.0.1:8000/searchname/" + this.state.name)
+                .then((response) => {
+                    console.log(response.data);
+                    this.setState({
+                        students: response.data,
+                    });
                 });
-            });
+        } else if (this.state.email && !this.state.name) {
+            axios
+                .get("http://127.0.0.1:8000/searchemail/" + this.state.email)
+                .then((response) => {
+                    console.log(response.data);
+                    this.setState({
+                        students: response.data,
+                    });
+                });
+        } else if (this.state.name && this.state.email) {
+            axios
+                .get(
+                    "http://127.0.0.1:8000/search/" +
+                        this.state.name +
+                        "/" +
+                        this.state.email
+                )
+                .then((response) => {
+                    console.log(response.data);
+                    this.setState({
+                        students: response.data,
+                    });
+                });
+        }
     }
 
     render() {
@@ -81,12 +113,15 @@ export default class SearchStudent extends Component {
                         />
                     </div>
 
-                    <button type="submit" className="btn btn-primary ">
-                        Search
+                    <button type="submit" className="btn border-shadow">
+                        <span className="text-gradient">
+                            <i className="fas fa-search"></i>
+                        </span>
                     </button>
                 </form>
+                <br />
                 <table className="table">
-                    <thead class="thead-dark">
+                    <thead className="thead-dark">
                         <tr>
                             <th scope="col">ID</th>
                             <th scope="col">Name</th>

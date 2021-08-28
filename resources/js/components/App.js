@@ -9,6 +9,7 @@ import Search from "./Search";
 import AdminControletUsers from "./AdminControleUser";
 import AddUser from "./AddUser";
 import EditUser from "./EditUser";
+import SearchUserByAdmin from "./SearchUserByAdmin";
 function App() {
     return (
         <BrowserRouter>
@@ -32,6 +33,11 @@ function App() {
                             exact
                             path="/editUser/:id"
                             component={EditUser}
+                        />
+                        <Route
+                            exact
+                            path="/sUser"
+                            component={SearchUserByAdmin}
                         />
                     </div>
                 </div>
